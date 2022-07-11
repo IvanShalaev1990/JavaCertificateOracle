@@ -3,21 +3,42 @@ package ua.com.javacertificateoracle.lesson22;
 public class TestLesson22 {
     public static void main(String[] args) {
         Mechenosec mechenosec = new Mechenosec("Mechenosec");
-        System.out.println(mechenosec.name);
-        mechenosec.eat();
-        mechenosec.swim();
-        mechenosec.sleep();
-        Speakable pingvin = new Pingvin("Pingvin");
-        pingvin.speak();
-        Animal lev = new Lion("Lev");
-        System.out.println(lev.name);
-        lev.eat();
-        lev.sleep();
-        Mammal lev2 = new Lion("lev2");
-        System.out.println(lev2.name);
-        lev2.eat();
-        lev2.run();
-        lev2.sleep();
-        lev2.speak();
+        Pingvin pingvin = new Pingvin("Pingvin");
+        Lion lev = new Lion("Lev");
+        Animal[] array2 = {mechenosec, pingvin, lev};
+        Speakable[] array3 = { pingvin, lev};
+        for (Animal animal:
+             array2) {
+            if (animal instanceof Mechenosec){
+                ((Mechenosec)animal).sleep();
+                ((Mechenosec)animal).eat();
+                ((Mechenosec)animal).swim();
+            }
+            if (animal instanceof Pingvin){
+                ((Pingvin)animal).sleep();
+                ((Pingvin)animal).eat();
+                ((Pingvin)animal).fly();
+            }
+            if (animal instanceof Lion){
+                ((Lion)animal).sleep();
+                ((Lion)animal).eat();
+                ((Lion)animal).run();
+            }
+        }
+        for (Speakable animal:
+                array3) {
+            if (animal instanceof Pingvin){
+                ((Pingvin)animal).sleep();
+                ((Pingvin)animal).eat();
+                ((Pingvin)animal).fly();
+                ((Pingvin)animal).speak();
+            }
+            if (animal instanceof Lion){
+                ((Lion)animal).sleep();
+                ((Lion)animal).eat();
+                ((Lion)animal).run();
+                ((Lion)animal).speak();
+            }
+        }
     }
 }
